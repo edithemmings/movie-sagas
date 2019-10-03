@@ -4,7 +4,9 @@ class HomeListItem extends Component {
     render() {
         return (
             <div className="HomeListItem">
-                <p>Empty Page</p>
+                <h3>{this.props.movie.title}</h3>
+                <img src={this.props.movie.poster} />
+                <p>{this.props.movie.description}</p>
             </div>
         );
     }
