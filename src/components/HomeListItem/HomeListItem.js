@@ -11,7 +11,7 @@ class HomeListItem extends Component {
                 <img 
                     src={this.props.movie.poster} 
                     alt={this.props.movie.title}
-                    onClick={seeDetails}
+                    onClick={this.seeDetails}
                 />
                 <p>{this.props.movie.description}</p>
             </div>
