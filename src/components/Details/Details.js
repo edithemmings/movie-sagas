@@ -5,7 +5,6 @@ class Details extends Component {
     render() {
         return (
             <div className="Details">
-                <p>edith</p>
                 <h3>{this.props.reduxStore.movieDetails.title}</h3>
                 <img
                     src={this.props.reduxStore.movieDetails.poster}
@@ -13,6 +12,7 @@ class Details extends Component {
                     onClick={this.seeDetails}
                 />
                 <p>{this.props.reduxStore.movieDetails.description}</p>
+                <p>Genres: {this.props.reduxStore.movieDetails.name}</p>
             </div>
         );
     }
