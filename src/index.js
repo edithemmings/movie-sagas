@@ -56,6 +56,13 @@ const movieDetails = (state = {}, action) => {
     }
 }
 
+//NOTES TO FUTURE SELF
+// url route is not dynamic
+// genre does not account for the possibility 
+// of there being more than one 
+
+
+
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
