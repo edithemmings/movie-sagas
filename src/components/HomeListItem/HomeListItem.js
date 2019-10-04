@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 
 class HomeListItem extends Component {
-    seeDetails = () => {
-        this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: this.props.movie})
-        this.props.history.push('/movies/' + this.props.movie.id)
-    }
     render() {
         return (
             <div className="HomeListItem">
@@ -13,7 +11,7 @@ class HomeListItem extends Component {
                 <img 
                     src={this.props.movie.poster} 
                     alt={this.props.movie.title}
-                    onClick={this.seeDetails}
+                    onClick={()=>this.props.seeDetails(this.props.movie)}
                 />
                 <p>{this.props.movie.description}</p>
             </div>
