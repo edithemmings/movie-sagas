@@ -1,8 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Montserrat', sans-serif
+  font-family: 'Montserrat', sans-serif;
 }
-
 
 .App-header {
   background-color: #222;
@@ -19,6 +18,7 @@
   font-size: large;
 }
 
+/* --------------- HOME PAGE ----------------------- */
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -41,8 +41,78 @@
   font-size: 16px;
   margin-top: 2px
 }
+/* --------------- DETAIL PAGE ----------------------- */
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.detail-buttons{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 20px;
+}
+.detail-buttons button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #129793;
+  border: 2px #129793 solid;
+  padding: 7px;
+}
+.details-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 750px;
+  margin: auto;
+}
+.details-content h2{
+  border-bottom: #222 solid;
+  width: 185px;
+  margin: 20px auto;
+}
+.details-content img{
+  width: 185px;
+  height: 283px;
+  margin: auto;
+}
+.details-content p{
+  font-size: 12px;
+  line-height: 1.4em;
+  padding: 0 20px;
+  width: 400px;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+li {
+  list-style: none;
+  margin: 20px;
+  padding: 5px 10px;
+  border-radius: 60px;
+  background-color: lightsalmon;
+}
+.edit-buttons {
+  margin: 20px auto;
+}
+.edit-buttons button{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #129793;
+  border: 2px #129793 solid;
+  padding: 7px;
+  width: 230px;
+  margin: 5px;
+}
+#warning-button {
+  color: lightsalmon;
+  border: 2px lightsalmon solid;
+}
+input, textarea {
+  width: 400px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+textarea {
+  min-height: 200px;
 }

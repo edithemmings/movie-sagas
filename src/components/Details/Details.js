@@ -12,23 +12,27 @@ class Details extends Component {
     render() {
         return (
             <div className="Details">
-
-                <Link to='/'><button>Back to List</button></Link>
-                <button onClick={() => this.handleEdit(this.props.reduxStore.movieDetails[0].id)}>Edit</button>
-                <h3>{this.props.reduxStore.movieDetails[0].title}</h3>
-                <img
-                    src={this.props.reduxStore.movieDetails[0].poster}
-                    alt={this.props.reduxStore.movieDetails[0].title}
-                    onClick={this.seeDetails}
-                />
-                <p>{this.props.reduxStore.movieDetails[0].description}</p>
-                <h4>Genres:</h4>
+                <div className='detail-buttons'>
+                    <Link to='/'><button>Back to List</button></Link>
+                    <button onClick={() => this.handleEdit(this.props.reduxStore.movieDetails[0].id)}>Edit</button>
+                </div>
+                <h2>{this.props.reduxStore.movieDetails[0].title}</h2>
+                <div className='details-content'>
+                    <img
+                        src={this.props.reduxStore.movieDetails[0].poster}
+                        alt={this.props.reduxStore.movieDetails[0].title}
+                        onClick={this.seeDetails}
+                    />
+                    <p>{this.props.reduxStore.movieDetails[0].description}</p>
+                </div>
+            <div className='flex'>
                 <ul>
                     {this.props.reduxStore.movieDetails.map(movie => {
                         return <li>{movie.name}</li>
                     })}
-                </ul> 
-            </div> 
+                </ul>
+            </div>
+            </div > 
         );
     }
 }

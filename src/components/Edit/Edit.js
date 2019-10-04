@@ -36,6 +36,11 @@ class Edit extends Component {
     render() {
         return (
             <div className="Edit">
+                {/* <div className='detail-buttons'>
+                    <button onClick={this.handleSave} id='warning-button'>Cancel</button>
+                    <button onClick={this.handleCancel}>Save</button>
+                </div> */}
+                <h2>Edit details for {this.props.reduxStore.movieDetails[0].title}</h2>
                 <p>Title</p>
                 <input 
                     value={this.state.movie.title}
@@ -47,8 +52,11 @@ class Edit extends Component {
                     onChange={(e) => this.handleInputChange(e, 'description')}
                 />
                 <br/>
-                <button onClick={this.handleSave}>Save</button>
-                <button onClick={this.handleCancel}>Cancel</button>
+                <div className='edit-buttons'>
+                    <button onClick={this.handleSave}>Save</button>
+                    <br/>
+                    <button onClick={this.handleCancel} id='warning-button'>Cancel</button>
+                </div>
             </div>
         );
     }
