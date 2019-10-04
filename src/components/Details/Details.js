@@ -7,12 +7,12 @@ class Details extends Component {
             <div className="Details">
                 <p>edith</p>
                 <h3>{this.props.reduxStore.movieDetails.title}</h3>
-                {/* <img
+                <img
                     src={this.props.reduxStore.movieDetails.poster}
                     alt={this.props.reduxStore.movieDetails.title}
                     onClick={this.seeDetails}
                 />
-                <p>{this.props.reduxStore.movieDetails.description}</p> */}
+                <p>{this.props.reduxStore.movieDetails.description}</p>
             </div>
         );
     }
