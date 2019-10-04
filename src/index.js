@@ -57,6 +57,7 @@ const movieDetails = (state = {}, action) => {
 }
 
 //NOTES TO FUTURE SELF
+// you don't have an update router on your server yet!
 // url route is not dynamic
 // genre does not account for the possibility 
 // of there being more than one 
