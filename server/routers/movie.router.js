@@ -27,6 +27,16 @@ router.get('/:id', (req, res) => {
             res.sendStatus(500);
         });
 });
+// router.post('/', (req, res) => {
+//     let queryText = `INSERT INTO "movie_genre"("movies_id", "genres_id" VALUES($1, $2);`
+//     pool.query(queryText, [req.body.movieId, req.body.genreId])
+//         .then(result => {
+//             res.sendStatus(201);
+//         }).catch(error => {
+//             console.log('error adding a genre', error)
+//             res.sendStatus(500)
+//         })
+// })
 
 //UPDATERRR
 router.put('/:id', (req, res) => {

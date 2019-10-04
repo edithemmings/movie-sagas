@@ -112,7 +112,22 @@ input, textarea {
   width: 400px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+  border: 1px grey solid;
+  border-radius: 2px;
+}
+input {
+  text-align: center;
 }
 textarea {
   min-height: 200px;
+}
+/* ------------TRANSITIONS ----------------- */
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
 }
