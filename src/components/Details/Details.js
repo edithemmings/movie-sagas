@@ -3,19 +3,34 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 class Details extends Component {
+    componentDidMount = () => {
+        this.props.dispatch({ type: 'GET_MOVIES' })
+    }
+    handleEdit = (id) => {
+        this.props.history.push('/edit/' + id)
+    }
     render() {
         return (
             <div className="Details">
-                <Link to='/'><button>Back to List</button></Link>
-                <Link to='/edit/1'><button>Edit</button></Link>
-                <h3>{this.props.reduxStore.movieDetails.title}</h3>
-                <img
-                    src={this.props.reduxStore.movieDetails.poster}
-                    alt={this.props.reduxStore.movieDetails.title}
-                    onClick={this.seeDetails}
-                />
-                <p>{this.props.reduxStore.movieDetails.description}</p>
-                <p>Genres: {this.props.reduxStore.movieDetails.name}</p>
+                
+                {this.props.reduxStore.movies.map(movie => {
+                    console.log(movie)
+                    if (movie.id == this.props.match.params.id){
+                        return <div>
+                            <Link to='/'><button>Back to List</button></Link>
+                            <button onClick={this.handleEdit(movie.id)}>Edit</button>
+                            <h3>{movie.title}</h3>
+                            <img
+                                src={movie.poster}
+                                alt={movie.title}
+                                onClick={this.seeDetails}
+                            />
+                            <p>{movie.description}</p>
+                            <p>Genres: {movie.name}</p>
+
+                        </div>
+                    }
+                })}
             </div>
         );
     }
