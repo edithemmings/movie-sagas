@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class HomeListItem extends Component {
     seeDetails = () => {
+        this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: this.props.movie})
         this.props.history.push('/movies/' + this.props.movie.id)
     }
     render() {
@@ -19,4 +21,4 @@ class HomeListItem extends Component {
     }
 }
 
-export default HomeListItem;
+export default connect()(HomeListItem);

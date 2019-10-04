@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomeListItem from '../HomeListItem/HomeListItem'
 import { connect } from 'react-redux'
+
 class HomeList extends Component {
     componentDidMount = () => {
         this.props.dispatch({ type: 'GET_MOVIES'})
