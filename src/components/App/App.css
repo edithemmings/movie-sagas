@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Montserrat', sans-serif
 }
 
 
@@ -16,6 +17,29 @@
 
 .App-intro {
   font-size: large;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.HomeListItem {
+  height: 300px;
+  width: 150px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.HomeListItem img {
+  margin: 10px;
+  border-radius: 5px;
+  height: 200px;  
+  box-shadow: #222 1px 1px 10px;
+
+}
+.HomeListItem h3 {
+  font-size: 16px;
+  margin-top: 2px
 }
 
 @keyframes App-logo-spin {

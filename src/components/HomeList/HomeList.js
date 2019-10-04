@@ -13,13 +13,16 @@ class HomeList extends Component {
     render() {
         return (
             <div className="HomeList">
-                {this.props.reduxStore.movies.map(movie => {
-                    return <HomeListItem 
-                        key={movie.id}
-                        movie={movie} 
-                        seeDetails={this.seeDetails}
-                    />
-                })}
+                <h1>Movie Sagas</h1>
+                <div className='flex'>
+                    {this.props.reduxStore.movies.map(movie => {
+                        return <HomeListItem 
+                            key={movie.id}
+                            movie={movie} 
+                            seeDetails={this.seeDetails}
+                        />
+                    })}
+                </div>
             </div>
         );
     }
