@@ -28,4 +28,19 @@ router.get('/:id', (req, res) => {
         });
 });
 
+//UPDATERRR
+router.put('/:id', (req, res) => {
+    console.log('puts are talking! & sent back', req.params.id)
+    let queryText = `UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;`;
+    pool.query(queryText, [req.body.title, req.body.description, req.params.id])
+        .then((result) => {
+            console.log("PUT result", result);
+            res.sendStatus(201);
+        }).catch((error) => {
+            console.log('error making query', error);
+            res.sendStatus(500)
+        })
+})// END PUT ROUTE
+
+
 module.exports = router;
