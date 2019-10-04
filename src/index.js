@@ -46,11 +46,16 @@ const movies = (state = [], action) => {
     }
 }
 // Used to store movies returned from the server
-const movieDetails = (state = {}, action) => {
+const movieDetails = (state = [{
+        title: '',
+        poster: '',
+        description: '',
+        name: ''
+    }], action) => {
     console.log(action.payload)
     switch (action.type) {
         case 'MOVIE_DETAILS':
-            return action.payload[0];
+            return action.payload;
         default:
             return state;
     }

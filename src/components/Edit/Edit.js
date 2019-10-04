@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
 class Edit extends Component {
     state = {
-        title: this.props.reduxStore.movieDetails.title,
-        description: this.props.reduxStore.movieDetails.description
-
+        movie: {}
     }
     componentDidMount = () => {
-
+        this.props.dispatch({ type: 'GET_MOVIES' })
+        this.props.reduxStore.movies.forEach(movie => {
+            if (movie.id == this.props.match.params.id){
+                this.setState({
+                    movie: movie
+                })
+            }
+        })
     }
     handleInputChange = (event, input) => {
         this.setState({
-            ...this.state,
-            [input]: event.target.value
+            movie: {
+                ...this.state.movie,
+                [input]: event.target.value
+            } 
         })
     }
     handleSave = () => {
-        Axios.put(`/movies/${this.props.reduxStore.movieDetails.id}`, this.state)
+        Axios.put(`/movies/${this.state.movie.id}`, this.state.movie)
             .then(response => {
-                this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: {id: this.props.reduxStore.movieDetails.id}})
-                this.props.history.push('/details/1')
+                let thisId = this.state.movie.id
+                this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: {id: thisId}})
+                this.props.history.push('/details/' + thisId)
             }).catch(error => {
                 console.log('error updating movie', error)
             })
+    }
+    handleCancel = (id) => {
+        this.props.history.push('/details/'+id)
     }
     render() {
         return (
@@ -42,7 +52,7 @@ class Edit extends Component {
                 />
                 <br/>
                 <button onClick={this.handleSave}>Save</button>
-                <Link to='/details/1'><button>Cancel</button></Link>
+                <button onClick={this.handleCancel}>Cancel</button>
             </div>
         );
     }

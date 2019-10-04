@@ -8,7 +8,7 @@ class HomeList extends Component {
     }
     seeDetails = (movie) => {
         this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: movie })
-        this.props.history.push('/details/1')
+        this.props.history.push('/details/'+ movie.id)
     }
     render() {
         return (
