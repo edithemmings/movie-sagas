@@ -14,7 +14,7 @@ class Details extends Component {
             <div className="Details">
 
                 <Link to='/'><button>Back to List</button></Link>
-                <button onClick={() => this.handleEdit([this.props.reduxStore.movieDetails][0].id)}>Edit</button>
+                <button onClick={() => this.handleEdit(this.props.reduxStore.movieDetails[0].id)}>Edit</button>
                 <h3>{this.props.reduxStore.movieDetails[0].title}</h3>
                 <img
                     src={this.props.reduxStore.movieDetails[0].poster}
