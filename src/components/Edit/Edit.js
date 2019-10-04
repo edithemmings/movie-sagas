@@ -30,15 +30,15 @@ class Edit extends Component {
                 console.log('error updating movie', error)
             })
     }
-    handleCancel = (id) => {
-        this.props.history.push('/details/'+id)
+    handleCancel = () => {
+        this.props.history.push('/details/' + this.props.reduxStore.movieDetails[0].id)
     }
     render() {
         return (
             <div className="Edit">
                 <p>Title</p>
                 <input 
-                    value={ this.state.movie.title}
+                    value={this.state.movie.title}
                     onChange={(e)=>this.handleInputChange(e, 'title')}
                 />
                 <p>Description</p>
