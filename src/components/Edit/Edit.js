@@ -4,16 +4,12 @@ import Axios from 'axios';
 
 class Edit extends Component {
     state = {
-        movie: {}
+        movie: this.props.reduxStore.movieDetails[0]
     }
     componentDidMount = () => {
-        this.props.dispatch({ type: 'GET_MOVIES' })
-        this.props.reduxStore.movies.forEach(movie => {
-            if (movie.id == this.props.match.params.id){
-                this.setState({
-                    movie: movie
-                })
-            }
+        this.props.dispatch({ type: 'GET_SELECTED_MOVIE', payload: this.props.match.params })
+        this.setState({
+            movie: this.props.reduxStore.movieDetails[0]
         })
     }
     handleInputChange = (event, input) => {
@@ -42,12 +38,12 @@ class Edit extends Component {
             <div className="Edit">
                 <p>Title</p>
                 <input 
-                    value={ this.state.title}
+                    value={ this.state.movie.title}
                     onChange={(e)=>this.handleInputChange(e, 'title')}
                 />
                 <p>Description</p>
                 <textarea 
-                    value={this.state.description} 
+                    value={this.state.movie.description} 
                     onChange={(e) => this.handleInputChange(e, 'description')}
                 />
                 <br/>
